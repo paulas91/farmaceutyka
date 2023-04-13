@@ -1,0 +1,2 @@
+module SyrupsHelper
+end
