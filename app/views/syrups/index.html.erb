@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Syrups</h1>
+
+
+  <% @syrups.each do |syrup| %>
+    <%= syrup.name %>
+    <%= syrup.time %>
+    <p>
+      <%= link_to "Show this syrup", syrup %>
+    </p>
+  <% end %>
+
+
+<%= link_to "New syrup", new_syrup_path %>

@@ -8,6 +8,14 @@ class SyrupsController < ApplicationController
     @syrup = Syrup.new
   end
 
+  def show
+    @syrup = Syrup.find(params[:id])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @syrup }
+    end
+  end
+
   def create
     @syrup = Syrup.new(syrups_params)
     if @syrup.save
