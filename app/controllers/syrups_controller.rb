@@ -1,4 +1,5 @@
 class SyrupsController < ApplicationController
+  before_action :find_syrup, :except => [:index, :create, :new]
 
   def index
     @syrups = Syrup.all
@@ -9,7 +10,6 @@ class SyrupsController < ApplicationController
   end
 
   def show
-    @syrup = Syrup.find(params[:id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @syrup }
@@ -28,11 +28,9 @@ class SyrupsController < ApplicationController
   end
 
   def edit
-    @syrup = Syrup.find(params[:id])
   end
 
   def update
-    @syrup = Syrup.find(params[:id])
 
     if @syrup.update(syrups_params)
       redirect_to @syrup
@@ -42,11 +40,15 @@ class SyrupsController < ApplicationController
   end
 
   def destroy
-    @syrup = Syrup.find(params[:id])
     @syrup.destroy
-    redirect_to syrups_path, status: :see_other
+    redirect_to syrup_path, status: :see_other
   end
 
+  private
+
+  def find_syrup
+    @syrup = Syrup.find(params[:id])
+  end
 
 
   def syrups_params
