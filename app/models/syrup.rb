@@ -9,4 +9,6 @@
 #  updated_at :datetime         not null
 #
 class Syrup < ApplicationRecord
+  validates :name, :time, presence: true
+  validates :name, uniqueness: true
 end
