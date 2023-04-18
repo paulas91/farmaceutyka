@@ -18,7 +18,9 @@
 
   <div class="mb-3 col-4">
     <%= form.label :time, class: "form-label"  %>
-    <%= form.date_field :time, class: "form-control" %>
+    <%= form.datetime_select("syrup", "", prompt: { day: "Choose day", month: "Choose month", year: "Choose year" }) %>
+    <%= form.datetime_select("syrup", "", prompt: { hour: true }) %>
+    <%= form.datetime_select("syrup", "", prompt: true) %>
   </div>
 
 
