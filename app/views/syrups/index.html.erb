@@ -2,14 +2,25 @@
 
 <h1>Syrups</h1>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Dose time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @syrups.each do |syrup| %>
+        <tr>
+          <td><%= syrup.name %></td>
+          <td><%= syrup.dose_time %></td>
+          <td>
+            <%= link_to "Show this syrup", syrup, class: "btn btn-primary btn-sm" %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-  <% @syrups.each do |syrup| %>
-    <%= syrup.name %>
-    <%= syrup.dose_time %>
-    <p>
-      <%= link_to "Show this syrup", syrup %>
-    </p>
-  <% end %>
-
-
-<%= link_to "New syrup", new_syrup_path %>
+  <%= link_to "New syrup", new_syrup_path, class: "btn btn-primary btn-sm" %>
