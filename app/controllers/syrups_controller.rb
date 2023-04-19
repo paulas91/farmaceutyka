@@ -52,6 +52,6 @@ class SyrupsController < ApplicationController
 
 
   def syrups_params
-    params.require(:syrup).permit(:name, :time)
+    params.require(:syrup).permit(:name, :dose_time)
   end
 end
