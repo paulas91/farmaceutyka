@@ -17,6 +17,8 @@
           <td><%= syrup.dose_time %></td>
           <td>
             <%= link_to "Show this syrup", syrup, class: "btn btn-primary btn-sm" %>
+            <%= link_to "Delete", syrup_path(syrup), data: { turbo_method: :delete, turbo_confirm: "Are you shure ?"},
+            class: "btn btn-outline-danger" %>
           </td>
         </tr>
     <% end %>
