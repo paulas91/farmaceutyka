@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SyrupsController < ApplicationController
-  before_action :find_syrup, :except => [:index, :create, :new]
+  before_action :find_syrup, except: %i[index create new]
 
   def index
     @syrups = Syrup.all
@@ -19,19 +21,17 @@ class SyrupsController < ApplicationController
   def create
     @syrup = Syrup.new(syrups_params)
     if @syrup.save
-      flash[:notice] = "New syrup has been created"
+      flash[:notice] = 'New syrup has been created'
       redirect_to syrup_path(@syrup)
     else
-      flash[:alert] = @syrup.errors.full_messages.join(", ")
+      flash[:alert] = @syrup.errors.full_messages.join(', ')
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-
     if @syrup.update(syrups_params)
       redirect_to @syrup
     else
@@ -49,7 +49,6 @@ class SyrupsController < ApplicationController
   def find_syrup
     @syrup = Syrup.find(params[:id])
   end
-
 
   def syrups_params
     params.require(:syrup).permit(:name, :dose_time)

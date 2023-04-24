@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # frozen_string_lit
 
 source 'https://rubygems.org'
@@ -67,8 +69,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'annotate'
-  gem 'web-console'
   gem 'hotwire-livereload'
+  gem 'web-console'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
