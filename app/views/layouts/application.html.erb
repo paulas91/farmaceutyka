@@ -8,9 +8,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
   <body>
+    <h4><em> Farmaceutyczny przewodnik</em> </h4>
     <%= yield %>
   </body>
 </html>
