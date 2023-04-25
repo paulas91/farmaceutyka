@@ -13,6 +13,12 @@
 
   <body>
     <h4><em> Farmaceutyczny przewodnik</em> </h4>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
