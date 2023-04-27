@@ -11,22 +11,31 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
-    <h4><em> Farmaceutyczny przewodnik</em> </h4>
-    <% if user_signed_in? %>
-      <%= current_user.email %>
-    <% end %>
+  <body class="container">
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <% if user_signed_in? %>
-      <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to 'Log in', new_user_session_path %>
-    <% end %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <p class="navbar-brand" >Farmaceutyczny przewodnik</p>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <%= link_to "Syrups", root_path, class: 'nav-link active' %>
+            <% if user_signed_in? %>
+              <%= current_user.email %>
+            <% end %>
+            <% if user_signed_in? %>
+              <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete } %>
+            <% else %>
+              <%= link_to 'Log in', new_user_session_path %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
