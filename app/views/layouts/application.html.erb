@@ -19,17 +19,17 @@
       <p class="alert" style="color: red"><%= alert %></p>
     <% end %>
     <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <% if user_signed_in? %>
-          <%=  current_user.email %>
-        <% end %>
-        <%= link_to "Syrups", root_path, class: 'nav-link active' %>
-        <% if user_signed_in? %>
-          <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link active btn btn-danger' %>
-        <% else %>
-          <%= link_to 'Log in', new_user_session_path, class: 'nav-link active btn btn-danger' %>
-        <% end %>
-      </div>
+      <div class='container-fluid'>
+      <p class='navbar-brand mb-0'><%= app_title %></p>
+      <% if user_signed_in? %>
+        <%= render 'devise/shared/navbar' %>
+      <% else %>
+        <div class='navbar-nav'>
+          <li class='nav-item'>
+            <%= link_to 'Log in', new_user_session_path, class: 'nav-link active btn btn-secondary' %>
+          </li>
+        </div>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
