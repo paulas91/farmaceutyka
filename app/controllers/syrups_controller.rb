@@ -2,6 +2,7 @@
 
 class SyrupsController < ApplicationController
   before_action :find_syrup, except: %i[index create new]
+  before_action :authenticate_user!
 
   def index
     @syrups = Syrup.all
