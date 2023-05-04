@@ -8,9 +8,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
+  <body class="container">
+    <% if notice %>
+      <p class="notice" style="color: green"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert" style="color: red"><%= alert %></p>
+    <% end %>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class='container-fluid'>
+      <p class='navbar-brand mb-0'></p>
+      <% if user_signed_in? %>
+        <%= render 'devise/shared/navbar' %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
-</html>
+
+

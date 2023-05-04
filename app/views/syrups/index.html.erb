@@ -1,0 +1,27 @@
+
+<h2>Syrups</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Dose time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @syrups.each do |syrup| %>
+        <tr>
+          <td><%= syrup.name %></td>
+          <td><%= syrup.dose_time %></td>
+          <td>
+            <%= link_to "Show this syrup", syrup, class: "btn btn-primary btn-sm" %>
+            <%= link_to "Delete", syrup_path(syrup), data: { turbo_method: :delete, turbo_confirm: "Are you shure ?"},
+            class: "btn btn-outline-danger" %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "New syrup", new_syrup_path, class: "btn btn-primary btn-sm" %>
