@@ -1,17 +1,15 @@
 
-  <div class="collapse navbar-collapse" id='navbarNavAltMarkup'>
-    <% if user_signed_in? %>
-      <p class="mb-0 text-primary">
-        <%=  current_user.email %>
-      </p>
-    <% end %>
-    <div class="navbar-nav">
-      <%= link_to "Syrups", root_path, class: 'nav-link active' %>
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= link_to 'Log out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link active btn btn-danger' %>
-        <% end %>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <li class="nav-item text-success list-unstyled">
+        <%= current_user.email %>
       </li>
+      <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Syrups", root_path, class: 'nav-link active' %>
+        </li>
+      </ul>
+      <p class="d-flex btn btn-outline-success" >
+        <%= link_to "log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
+      </p>
     </div>
-  </div>
 
